@@ -1,0 +1,1 @@
+for file in *.ttf ; do new_fname=$(fc-scan --format "%{postscriptname}.ttf" $file) ;  mv "$file"  "$new_fname" ; done
