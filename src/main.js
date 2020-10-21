@@ -1,8 +1,9 @@
 import compareFonts from './lib/compare-fonts';
 
-const folder = '/Users/valeriya/Documents/compare-fonts/fontsSlice/'
+const folder = '/Users/valeriya/Downloads/test/old/'
 
 main()
+// compare()
 
 async function main() {
 
@@ -20,12 +21,14 @@ async function main() {
 
     for (var secondIndex in files) {
       let secondFontName = files[secondIndex]
-      var secondFontPath = folder + secondFontName
 
-      let similarityIndex = await compareFonts(firstFontPath, secondFontPath)
+      if (secondFontName != firstFontName) {
+        var secondFontPath = folder + secondFontName
 
-      array.push({name: secondFontName.slice(0, -4), value: similarityIndex})
+        let similarityIndex = await compareFonts(firstFontPath, secondFontPath)
 
+        array.push({name: secondFontName.slice(0, -4), value: similarityIndex})
+      }
     }
 
     array.sort(function(a,b) {
